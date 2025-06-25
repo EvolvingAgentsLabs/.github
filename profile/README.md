@@ -1,5 +1,3 @@
-# Evolving Agents Labs 🧪
-
 **Experimental Research in Adaptive Agent Systems**
 
 > 🌐 **Visit our research lab**: [**evolvingagentslabs.github.io**](https://evolvingagentslabs.github.io)
@@ -38,14 +36,44 @@ We explore early-stage concepts in adaptive AI through experimental frameworks a
 
 ---
 
+## 🔬 EAX Protocol Suite
+
+### [EAX Router](https://github.com/EvolvingAgentsLabs/eax-router) `ALPHA`
+**Intelligent LLM Routing Layer**
+- Experimental routing for dynamic model selection
+- Cost, latency, and quality optimization research
+- Pluggable strategies and provider-agnostic design
+
+[📖 Learn More](https://evolvingagentslabs.github.io/experiments/eax-router.html)
+
+### [EAX Marketplace](https://github.com/EvolvingAgentsLabs/eax-marketplace) `ALPHA`
+**Decentralized Agent Collaboration Protocol**
+- Experimental auction protocol for AI agent tasks
+- Research into competitive multi-agent task allocation
+- Dynamic, self-organizing agent ecosystems
+
+[📖 Learn More](https://evolvingagentslabs.github.io/experiments/eax-marketplace.html)
+
+### [SAL-CP](https://github.com/EvolvingAgentsLabs/sal-cp) `ALPHA`
+**Self-Aware LLM Communication Protocol**
+- Rich context communication for collaborative agents
+- Research into contextual agent-to-agent messaging
+- Cognitive state awareness and performance metadata
+
+[📖 Learn More](https://evolvingagentslabs.github.io/experiments/sal-cp.html)
+
+---
+
 ## 🔬 Research Areas
 
 | Focus Area | Description |
 |------------|-------------|
 | **Adaptive Behavior Research** | How agents might modify decision-making based on context and interaction patterns |
+| **Intelligent Routing & Selection** | Dynamic model and agent selection systems optimizing for cost, latency, or quality |
+| **Agent Collaboration Protocols** | Communication and coordination protocols for decentralized multi-agent systems |
 | **Memory System Experiments** | Structured experience databases with pattern recognition capabilities |
+| **Contextual Communication** | Rich context messaging protocols for effective agent-to-agent collaboration |
 | **Sentient State Architecture** | Novel patterns combining data, logic, and evolving behavioral constraints |
-| **Real-World Integration** | Bridging experimental concepts with practical implementation challenges |
 
 ---
 
