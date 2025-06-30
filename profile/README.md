@@ -1,3 +1,5 @@
+# Evolving Agents Labs 🧪
+
 **Experimental Research in Adaptive Agent Systems**
 
 > 🌐 **Visit our research lab**: [**evolvingagentslabs.github.io**](https://evolvingagentslabs.github.io)
@@ -18,21 +20,9 @@ We explore early-stage concepts in adaptive AI through experimental frameworks a
 **Experimental Pure Markdown Operating System**
 - Research into adaptive behavior management and sentient state architecture
 - Everything defined as agents or tools in markdown documents
-- Claude Code serves as the runtime engine
+- Gemini CLI serves as the runtime engine
 
 [📖 Learn More](https://evolvingagentslabs.github.io/experiments/llmunix.html) • [🚀 Try It](https://github.com/EvolvingAgentsLabs/llmunix#quick-start)
-
-### [Framework Core](https://github.com/EvolvingAgentsLabs/framework-core) `ALPHA` 
-**Experimental Architectural Patterns**
-- Distilling insights from LLMunix research into reusable patterns
-- Early-stage exploration of agent system components
-- Focus on modular design and adaptive behavior concepts
-
-### [Agent Examples](https://github.com/EvolvingAgentsLabs/agent-examples) `ALPHA`
-**Experimental Implementation Prototypes** 
-- Research prototypes exploring adaptive AI concepts
-- Examples derived from LLMunix experiments
-- Investigating practical applications of behavioral adaptation
 
 ---
 
