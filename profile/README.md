@@ -65,9 +65,9 @@ This represents the natural evolution from external frameworks → markdown spec
 
 #### Agent Forge POC Implementations
 
-- **[├── jit-agent-poc](https://github.com/EvolvingAgentsLabs/jit-agent-poc)** `ALPHA` - Unified Qwen Architecture POC: Single fine-tuned Qwen2.5-Coder-1.5B model as both Orchestrator and Translator, eliminating multi-model complexity through specialized LoRA training
-- **[├── jit-agent-learn](https://github.com/EvolvingAgentsLabs/jit-agent-learn)** `ALPHA` - Learning & Adaptation POC: Reinforcement learning capabilities allowing agents to improve performance through experience and feedback loops using Qwen models
-- **[└── jit-agent-memory](https://github.com/EvolvingAgentsLabs/jit-agent-memory)** `ALPHA` - Persistent Memory POC: Advanced memory capabilities enabling contextual awareness and long-term information retention using Qwen models
+- **[├── jit-agent-poc](https://github.com/EvolvingAgentsLabs/agent-forge/tree/main/jit-agent-poc)** `ALPHA` - Unified Qwen Architecture POC: Single fine-tuned Qwen2.5-Coder-1.5B model as both Orchestrator and Translator, eliminating multi-model complexity through specialized LoRA training
+- **[├── jit-agent-learn](https://github.com/EvolvingAgentsLabs/agent-forge/tree/main/jit-agent-learn)** `ALPHA` - Learning & Adaptation POC: Reinforcement learning capabilities allowing agents to improve performance through experience and feedback loops using Qwen models
+- **[└── jit-agent-memory](https://github.com/EvolvingAgentsLabs/agent-forge/tree/main/jit-agent-memory)** `ALPHA` - Persistent Memory POC: Advanced memory capabilities enabling contextual awareness and long-term information retention using Qwen models
 
 ---
 
