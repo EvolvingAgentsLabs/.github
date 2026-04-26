@@ -1,240 +1,281 @@
-# Evolving Agents Labs
+<!--
+  EvolvingAgentsLabs — organization profile.
+  Tron Ares aesthetic at the org level (orange/red signature),
+  with each project card transitioning from a real-world line-art
+  rendering on the left to that project's terminal aesthetic on the
+  right. Inspired by ART+COM's Chronos XXI — abstract digital matter
+  meeting physical form.
+-->
 
-## About Our Research
+<p align="center">
+  <img src="profile/assets/org-hero.svg" alt="Evolving Agents Labs — cortex · cerebellum · kernel" width="100%"/>
+</p>
 
-A year ago, the idea of describing a workflow once to an AI and having a 2GB local model execute it daily with actual reasoning seemed like science fiction. So did generating production mobile apps with on-device AI in minutes, or having workflows that improve themselves with each execution.
+<p align="center">
+  <strong><code>EVOLVING AGENTS LABS</code></strong> &nbsp;//&nbsp; on-device adaptive AI · open · permanently alpha.<br/>
+  <sub>Four research experiments mapping a biological cognitive stack onto local LLMs.</sub>
+</p>
 
-We built it. We call it **LLMunix**.
+<p align="center">
+  <a href="https://github.com/EvolvingAgentsLabs"><img alt="org" src="https://img.shields.io/badge/org-EvolvingAgentsLabs-ff2d00?style=for-the-badge&labelColor=000000"/></a>
+  <a href="#"><img alt="status" src="https://img.shields.io/badge/status-permanently%20alpha-ff6b1a?style=for-the-badge&labelColor=000000"/></a>
+  <a href="#"><img alt="license" src="https://img.shields.io/badge/license-Apache%202.0-00d4ff?style=for-the-badge&labelColor=000000"/></a>
+  <a href="#"><img alt="active" src="https://img.shields.io/badge/active%20projects-4-ffd9c2?style=for-the-badge&labelColor=000000"/></a>
+</p>
 
-We explore early-stage concepts in adaptive AI through experimental frameworks and research prototypes. Our work investigates how intelligent agents might adapt, learn, and evolve—not in the cloud adapting to everyone, but locally and privately, adapting to you.
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
 
-**All projects remain permanently in alpha status as ongoing research experiments.**
+## ▸ what we build
 
----
+We build a **biological cognitive stack** on top of local LLMs. The
+mapping is intentional — three brain regions, four repos, one runtime
+substrate:
 
-## 💭 The Vision: What If...
-
-**What if you could describe any mobile app** — "personal trainer that adapts," "study assistant that quizzes me" — and get a working prototype with on-device AI in minutes, not months?
-
-**What if every workflow you do more than once** becomes an agent that improves each time, learning from experience and evolving its approach?
-
-**What if AI ran locally, privately, adapting to you** — not in the cloud adapting to everyone, but on your device with your data?
-
-These are the questions driving our research. LLMunix is our experimental answer.
-
----
-
-## 🧪 Current Experiments
-
-### [LLMunix](https://github.com/EvolvingAgentsLabs/llmunix) 🦄 `ALPHA`
-**Pure Markdown Operating System**
-
-A revolutionary Pure Markdown Operating System designed to be run by multiple AI runtime engines. Compatible with Claude Code, Gemini CLI, and Qwen Code.
-
-**The Core Innovation:**
-- **Define once with Claude** ($0.50): Create agent definitions with full reasoning capabilities
-- **Execute infinitely with Granite** ($0): Local 2GB model executes the definition with actual reasoning
-- **Cost savings**: $730/year → $0.50/year for the same flexible behavior
-
-**Key Capabilities:**
-- Multi-tier memory system with short-term and long-term learning
-- Dynamic agent creation during execution
-- Sentient state architecture with behavioral adaptation
-- Optional mobile app generation (React Native with on-device LLMs)
-- Runtime engines interpret manifest files into functional operating systems
-
-[📖 Learn More](https://evolvingagentslabs.github.io/experiments/llmunix.html) • [🚀 View Project](https://github.com/EvolvingAgentsLabs/llmunix)
-
----
-
-### [LLMunix Starter](https://github.com/EvolvingAgentsLabs/llmunix-starter) 🏭 `ALPHA`
-**Pure Markdown OS Template for Claude Code Web**
-
-A fresh LLMunix template optimized for Claude Code on the web. The factory for building specialized agents dynamically—not pre-built solutions, just the essential kernel.
-
-**Philosophy: The Factory, Not the Products**
-- Traditional AI systems pre-define hundreds of agents for specific domains
-- LLMunix Starter ships only 3 core system agents
-- Creates exactly the agents you need, tailored to your specific problem
-- Every project learns and improves future executions
-
-**What You Get:**
-- Essential kernel only (SystemAgent, MemoryAnalysisAgent, MemoryConsolidationAgent)
-- Dynamic agent factory that creates specialized agents on demand
-- Continuous learning from every execution
-- Works with public and private repositories
-
-**Use Cases:**
-- Give Claude any ambitious goal
-- System analyzes and creates specialized agents (VisionaryAgent, MathematicianAgent, etc.)
-- Agents collaborate, produce outputs, log learnings
-- Future projects bootstrap faster using past patterns
-
-[📖 Learn More](https://evolvingagentslabs.github.io/experiments/llmunix-starter.html) • [🏭 Use Template](https://github.com/EvolvingAgentsLabs/llmunix-starter)
-
----
-
-### [LLMunix Marketplace](https://github.com/EvolvingAgentsLabs/llmunix-marketplace) 🔌 `ALPHA`
-**Claude Code CLI Plugin**
-
-The LLMunix kernel as a Claude Code CLI plugin. Install the Pure Markdown Operating System via the marketplace and solve complex goals with a single command.
-
-**The `/llmunix` Command:**
-```bash
-/llmunix "Create a biomedical quantum computing research project"
+```
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │                                                                        │
+  │   PREFRONTAL CORTEX     ┄→   skillos      desktop · markdown OS      │
+  │                              skillos_mini mobile · trade-app          │
+  │                                                                        │
+  │   CEREBELLUM            ┄→   RoClaw       embodied · 20cm cube robot  │
+  │                                                                        │
+  │   KERNEL                ┄→   llm_os       LLM-as-CPU · 13-opcode ISA  │
+  │                                                                        │
+  └──────────────────────────────────────────────────────────────────────┘
 ```
 
-**What Happens:**
-1. Analyzes goal and identifies required expertise
-2. Creates project structure with dedicated workspace
-3. **Dynamically writes new agent markdown files** for each expertise
-4. Orchestrates agent collaboration via Task tool
-5. Produces outputs in project directory
-6. Consolidates learnings to long-term memory
-7. Future projects query and reuse successful patterns
+Each repo is independently shippable. They are also **paired** — a goal
+typed into `skillos` plans through `llm_os` and acts on the world
+through `RoClaw`. Each layer is swappable.
 
-**Installation:**
-```bash
-/plugin marketplace add evolving-agents-labs/llmunix-marketplace
-/plugin install llmunix-plugin
-/llmunix "your goal here"
+> **Permanently alpha.** Every repo here is a research experiment,
+> not a product. We ship breaking changes, partial implementations,
+> and "thesis-first" documentation. The thesis matters more than
+> backwards compatibility — at this stage.
+
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
+
+## ▸ the four active projects
+
+Each card below shows the **transition from real-world to terminal**
+— the physical thing on the left, the live runtime on the right, with
+particle streams and a digitization scan line bridging them.
+
+<p align="center">
+  <a href="https://github.com/EvolvingAgentsLabs/skillos">
+    <img src="profile/assets/card-skillos.svg" alt="skillos — pure markdown OS for the desktop" width="100%"/>
+  </a>
+</p>
+
+### [skillos](https://github.com/EvolvingAgentsLabs/skillos) &nbsp;·&nbsp; <code>cortex · desktop</code>
+
+A **pure markdown operating system** designed to run on multiple AI
+runtime engines. Compatible with Claude Code, Gemini CLI, and Qwen
+Code. Define an agent once with a high-end model, execute it forever
+on a 2 GB local model. Dream consolidation, evolving memory, multi-tier
+strategy retrieval — all expressed as markdown files the runtime walks
+on every dispatch.
+
+```
+$ skillos execute "Run the RoClaw Dream Consolidation scenario"
+[OK] markdown agents       ▸ RoClawNavigationAgent · RoClawSceneAnalysisAgent
+[OK] dream consolidation   ▸ traces/sim3d/*.md  →  strategies/*.md
+[OK] evolving memory       ▸ persistent · weighted by fidelity
 ```
 
-**Core Innovation:** Instead of shipping hundreds of pre-built agents, LLMunix creates the exact agent you need with a system prompt tailored to your specific problem. A biomedical quantum computing project gets VisionaryAgent, MathematicianAgent, QuantumEngineerAgent. A web scraper gets DataExtractorAgent, ParserAgent, ValidationAgent. Exactly what you need, nothing more.
+<p align="center">
+  <a href="https://github.com/EvolvingAgentsLabs/skillos_mini">
+    <img src="profile/assets/card-skillos-mini.svg" alt="skillos_mini — on-device trade-app" width="100%"/>
+  </a>
+</p>
 
-[📖 Learn More](https://evolvingagentslabs.github.io/experiments/llmunix-marketplace.html) • [🔌 View Plugin](https://github.com/EvolvingAgentsLabs/llmunix-marketplace)
+### [skillos_mini](https://github.com/EvolvingAgentsLabs/skillos_mini) &nbsp;·&nbsp; <code>cortex · mobile</code>
 
----
+The mobile-first, on-device port of the SkillOS family — a
+**Capacitor + Svelte 5** Android application driving Gemma 4 E2B vision
+locally via LiteRT. First commercial vertical: a trade-app for
+Spanish-speaking tradespeople (electricista, plomero, pintor) that
+captures photos, runs a vision diagnosis on-device, generates a
+branded PDF, and shares it by WhatsApp. **No backend.** Photos never
+leave the device until the user taps share.
 
-## 📢 Project Evolution: From EAT to LLMunix
+```
+[OK] cartridges    ▸ trade-electricista · trade-plomero · trade-pintor
+[OK] vision        ▸ gemma-4-e2b.litertlm  · on-device · ~200 ms
+[OK] tests         ▸ 278 / 278 green  ·  svelte-check 0 errors
+```
 
-### Original Evolving Agents Toolkit (EAT) - Sunset Notice
+<p align="center">
+  <a href="https://github.com/EvolvingAgentsLabs/RoClaw">
+    <img src="profile/assets/card-roclaw.svg" alt="RoClaw — embodied AI cube" width="100%"/>
+  </a>
+</p>
 
-The original [Evolving Agents Toolkit (EAT) Python project](https://github.com/matiasmolinas/evolving-agents) was officially discontinued in July 2025. While EAT demonstrated powerful concepts in multi-agent orchestration with MongoDB backend, we recognized the complex Python architecture was over-engineered for achieving adaptive agent behavior.
+### [RoClaw](https://github.com/EvolvingAgentsLabs/RoClaw) &nbsp;·&nbsp; <code>cerebellum · embodied</code>
 
-**Key insights that led to LLMunix:**
-- Complex multi-component architectures created unnecessary overhead
-- The core concept of autonomous agent evolution was sound
-- Simpler approaches could achieve the same adaptive behaviors
-- LLM capabilities alone could handle orchestration and evolution
+A **20 cm cube robot** powered by ESP32-S3 + 28BYJ-48 stepper motors,
+driven by a vision language model running on-device. Five-tier stack:
+ReflexGuard collision veto at L0, an 8-byte UDP ISA at L1, Qwen3-VL-2B
+distilled from Gemini Robotics-ER at L2, scene graph + reactive
+controller at L3, skillos planning at L4. The robot dreams overnight
+in MuJoCo, retries failed runs, fine-tunes a LoRA, and hot-swaps the
+new GGUF into Ollama by morning.
 
-### The Simplification
+```
+$ npm run sim:3d -- --ollama --goal "navigate to the red cube"
+[OK] qwen3-vl-2b           ▸ on-device · 200 ms / frame
+[OK] scene_graph           ▸ ReactiveController · ReflexGuard shadow
+[OK] esp32-s3              ▸ udp :4210 · 8-byte ISA v2 · ack 38ms
+```
 
-**From EAT's complexity to LLMunix's simplicity:**
-- **EAT**: Multi-component Python architecture with MongoDB backend
-- **LLMunix**: Pure markdown definitions interpreted by LLM runtime engines
-- **Result**: Same adaptive capabilities, 10x simpler implementation
+<p align="center">
+  <a href="https://github.com/EvolvingAgentsLabs/llm_os">
+    <img src="profile/assets/card-llm-os.svg" alt="llm_os — LLM as CPU" width="100%"/>
+  </a>
+</p>
 
-### Validation & Next Frontier
+### [llm_os](https://github.com/EvolvingAgentsLabs/llm_os) &nbsp;·&nbsp; <code>kernel · ground-up</code>
 
-With Claude Code's implementation of **sub-agents in markdown as an official feature**, our original markdown-based agent concept has been validated by the industry. This proves the approach works.
+Not an agent framework. An **operating system architecture** where the
+LLM itself plays the role of the CPU and the rest of the runtime is
+built around it the way Linux is built around x86. 13-opcode ISA over
+GBNF grammar (sampler-enforced — invalid sequences are physically
+impossible to emit). KV cache as RAM. Compaction as swap. Logit bias
+as Ring 0/Ring 3 privileges. 8 Hz on a Raspberry Pi 5; 200 Hz on a
+cloud A100. Same ISA, same grammar, same cartridges.
 
-**Our continuing research direction:**
-- **LLMunix continues** as our core research platform for markdown-based agent systems
-- **Three distribution methods**: Main project, Starter template, CLI plugin
-- **Focus areas**: Dynamic agent creation, continuous learning, local execution
-- **Next frontier**: Exploring pure LLM-native agent architectures
+```
+$ ./scripts/quickstart.sh
+[OK] llama.cpp     ▸ qwen-2.5-3b-q4 · 4×NEON · ctx=8192
+[OK] grammar       ▸ isa.gbnf · 13 opcodes · 12/12 fixtures green
+[OK] iod daemon    ▸ /dispatch /trace /policy
+[OK] cartridges    ▸ 6 mounted · system · io · sim · domestic
+```
 
-This represents the natural evolution: external frameworks → markdown specifications → LLM-native agents.
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
 
----
+## ▸ how the four fit together
 
-## 🔬 Research Areas
+```
+                    ┌──────────────────┐
+                    │  USER · WhatsApp │
+                    │  voice · CLI     │
+                    └────────┬─────────┘
+                             │ "Go check the kitchen"
+                             ▼
+              ┌─────────────────────────────┐
+              │  skillos · skillos_mini     │   ◄  ARES ORANGE  ◄
+              │  prefrontal cortex          │       cortex
+              │  plan · learn · dream       │
+              └────────┬────────────────────┘
+                       │ HTTP
+                       ▼
+              ┌─────────────────────────────┐
+              │  llm_os                     │   ◄  WHITE-ON-BLACK ◄
+              │  kernel · LLM as CPU        │       kernel
+              │  ISA · GBNF · iod · KV      │
+              └────────┬────────────────────┘
+                       │ <|call|>roclaw.forward
+                       ▼
+              ┌─────────────────────────────┐
+              │  RoClaw                     │   ◄  MCP GREEN  ◄
+              │  cerebellum · embodied      │       cerebellum
+              │  perceive · move            │
+              └────────┬────────────────────┘
+                       │ UDP :4210
+                       ▼
+                   ESP32-S3 · 20cm cube
+```
 
-| Focus Area | Description |
-|------------|-------------|
-| **Adaptive Behavior Research** | How agents modify decision-making based on context, user sentiment, and interaction patterns |
-| **Pure Markdown Architecture** | Using markdown as a complete operating system specification with clean separation of behavior, state, and execution |
-| **Dynamic Agent Creation** | On-demand generation of specialized agents tailored to specific problem requirements |
-| **Continuous Learning Systems** | Memory architectures enabling agents to improve through experience and pattern recognition |
-| **Local-First AI Execution** | Running AI privately on-device with local models, maintaining privacy and zero marginal cost |
-| **Learner-Follower Pattern** | Expensive LLMs create definitions once, edge models execute infinitely at zero cost |
+Each layer is independently shippable. Each layer is swappable. The
+goal is **a self-improving loop**: every navigation produces a trace,
+every trace becomes training data, every overnight cycle ends with a
+better model swapped into the local runtime.
 
----
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
 
-## 🌐 Explore Our Research Lab
+## ▸ design principles
 
-**👉 [Visit evolvingagentslabs.github.io](https://evolvingagentslabs.github.io) for the complete research showcase**
+```
+  ┌─[ NON-NEGOTIABLES ]─────────────────────────────────────────────┐
+  │                                                                  │
+  │  1. ON-DEVICE FIRST                                              │
+  │     The cloud is opt-in. No project here defaults to a cloud     │
+  │     model. Every primitive runs on Pi 5 / Snapdragon NPU first.  │
+  │                                                                  │
+  │  2. MARKDOWN AS DATA                                             │
+  │     Agent prompts, strategies, traces, dreams — all .md files    │
+  │     the runtime walks. Reviewable. Diffable. No hidden state.    │
+  │                                                                  │
+  │  3. DETERMINISTIC SAFETY                                         │
+  │     Validators are code, not prompts. ReflexGuard, GBNF,         │
+  │     IEC 60364 — the LLM proposes; deterministic logic enforces.  │
+  │                                                                  │
+  │  4. SWAPPABLE LAYERS                                             │
+  │     Cortex doesn't know what cerebellum is running. Cerebellum   │
+  │     doesn't know what kernel runs the cortex. Each layer is a   │
+  │     contract; implementations come and go.                       │
+  │                                                                  │
+  │  5. PERMANENTLY ALPHA                                            │
+  │     We optimize for thesis clarity over API stability. Breaking  │
+  │     changes are how we learn; backwards compatibility is later.  │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+```
 
-### Quick Navigation
-- 🔬 [View All Experiments](https://evolvingagentslabs.github.io#experiments)
-- 📊 [Research Overview](https://evolvingagentslabs.github.io#about)
-- 📖 [LLMunix Deep Dive](https://evolvingagentslabs.github.io/experiments/llmunix.html)
-- 🏭 [LLMunix Starter Template](https://evolvingagentslabs.github.io/experiments/llmunix-starter.html)
-- 🔌 [LLMunix CLI Plugin](https://evolvingagentslabs.github.io/experiments/llmunix-marketplace.html)
-- 🛠️ [Try LLMunix](https://github.com/EvolvingAgentsLabs/llmunix#quick-start)
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
 
----
+## ▸ status
 
-## 💡 Real-World Applications
+```
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                    │
+  │  skillos        ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰   stable       v0.X     │
+  │  skillos_mini   ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰    feat-complete v0.1.0  │
+  │  RoClaw         ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰      active research        │
+  │  llm_os         ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰       v0.5-rc1 · → v1.0    │
+  │                                                                    │
+  └────────────────────────────────────────────────────────────────────┘
+```
 
-**What can you build with LLMunix today?**
+Read the per-project READMEs for the deep dive — each repo has its own
+**ARCHITECTURE.md**, **USAGE.md**, **TUTORIAL.md**, and **NEXT_STEPS.md**:
 
-### Workflows That Improve Themselves
-- Data processing pipelines that adapt to format changes
-- Research workflows that remember successful strategies
-- Content generation that learns from user preferences
-- Analysis tasks that evolve their approach based on results
+- [`skillos`](https://github.com/EvolvingAgentsLabs/skillos)
+- [`skillos_mini`](https://github.com/EvolvingAgentsLabs/skillos_mini)
+- [`RoClaw`](https://github.com/EvolvingAgentsLabs/RoClaw)
+- [`llm_os`](https://github.com/EvolvingAgentsLabs/llm_os)
 
-### Mobile Apps with On-Device AI
-- Personal trainers that adapt workouts to your progress (Qwen 600MB)
-- Study assistants that quiz you based on your learning patterns
-- Habit trackers with intelligent reminders
-- Code generation apps with local AI (Granite 1.5GB)
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
 
-### Privacy-First AI
-- All processing happens on your device
-- No data sent to external servers
-- Complete control over your information
-- Zero marginal cost after initial setup
+## ▸ contact
 
-**The Pattern:**
-1. Describe what you want to Claude once ($0.50)
-2. Get a specialized agent definition or mobile app
-3. Execute locally with Granite/Qwen (free)
-4. System adapts and improves with each run
+- GitHub Issues on each repo for bug reports and design discussions.
+- Apache 2.0 across the org. Fork, study, ship.
+- We are not currently accepting external code contributions on these
+  repos — the design space is still moving too fast. We welcome
+  **forks** and **derivative works**.
 
----
+<p align="center">
+  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+</p>
 
-## ⚠️ Experimental Nature
+<p align="center">
+  <img src="profile/assets/mark.svg" alt="" width="48"/>
+</p>
 
-**Important**: All our projects are research prototypes exploring early-stage concepts. They should be treated as experimental research material rather than production-ready systems.
-
-**Current Limitations:**
-- Edge models are 10-20% less accurate than Claude
-- Mobile apps with LLMs are 600MB-1.5GB
-- Novel tasks still require expensive LLMs
-- The markdown abstraction might hit limits we haven't found
-
-**But it's working well enough to be interesting.**
-
-We believe in transparent, open research that advances the field through shared exploration. That's why we're sharing early and asking: Where does this break? What are we not seeing?
-
----
-
-## 🤝 Contributing & Feedback
-
-We welcome researchers, developers, and curious minds to explore our work:
-
-- **🔍 Explore**: Browse our experiments and documentation
-- **🐛 Report**: Share findings, issues, or edge cases you discover
-- **💡 Discuss**: Join conversations about adaptive agent concepts
-- **🧪 Experiment**: Build upon our research prototypes
-- **🤔 Challenge**: Point out architectural flaws and limitations
-- **💬 Share**: Tell us what you'd build with local, private, adaptive AI
-
-**Two Questions for the Community:**
-
-1. Where does this approach break? What limitations are we not seeing?
-
-2. If you could generate any personal AI app that runs 100% offline—what would you build?
-
----
-
-## 📄 License
-
-All projects are released under the Apache 2.0 License.
-
----
-
-**Genuinely want to hear what you think. This is an experiment in seeing how far we can push edge AI + markdown definitions.**
+<p align="center">
+  <sub><code>// END_OF_TRANSMISSION  ·  EVOLVING AGENTS LABS // 2026</code></sub>
+</p>
