@@ -8,7 +8,7 @@
 -->
 
 <p align="center">
-  <img src="profile/assets/org-hero.svg" alt="Evolving Agents Labs — cortex · cerebellum · kernel" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/org-hero.svg" alt="Evolving Agents Labs — cortex · cerebellum · kernel" width="100%"/>
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 ## ▸ what we build
@@ -33,17 +33,36 @@ We build a **biological cognitive stack** on top of local LLMs. The
 mapping is intentional — three brain regions, four repos, one runtime
 substrate:
 
-```
-  ┌──────────────────────────────────────────────────────────────────────┐
-  │                                                                        │
-  │   PREFRONTAL CORTEX     ┄→   skillos      desktop · markdown OS      │
-  │                              skillos_mini mobile · trade-app          │
-  │                                                                        │
-  │   CEREBELLUM            ┄→   RoClaw       embodied · 20cm cube robot  │
-  │                                                                        │
-  │   KERNEL                ┄→   llm_os       LLM-as-CPU · 13-opcode ISA  │
-  │                                                                        │
-  └──────────────────────────────────────────────────────────────────────┘
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor':'#1a0500','primaryTextColor':'#ffd9c2','primaryBorderColor':'#ff2d00',
+  'lineColor':'#ff6b1a','secondaryColor':'#001a14','tertiaryColor':'#000',
+  'background':'#000','mainBkg':'#1a0500',
+  'clusterBkg':'#000','clusterBorder':'#ff6b1a',
+  'edgeLabelBackground':'#000',
+  'fontFamily':'ui-monospace, SF Mono, Menlo, Consolas, monospace'
+}}}%%
+flowchart LR
+    subgraph Cortex["🧠 PREFRONTAL CORTEX"]
+        Skl["skillos<br/>desktop · markdown OS"]
+        SklM["skillos_mini<br/>mobile · trade-app"]
+    end
+    subgraph Cereb["⚡ CEREBELLUM"]
+        RC["RoClaw<br/>embodied · 20cm cube"]
+    end
+    subgraph Kern["◇ KERNEL"]
+        LO["llm_os<br/>LLM-as-CPU · 13 opcodes"]
+    end
+    Skl  --> LO
+    SklM --> LO
+    LO   --> RC
+
+    classDef ares fill:#1a0500,stroke:#ff2d00,color:#ffd9c2;
+    classDef mcp  fill:#001a0a,stroke:#00ff7f,color:#bbf7d0;
+    classDef ker  fill:#0a0a0a,stroke:#ffffff,color:#e4e4e7;
+    class Skl,SklM ares;
+    class RC mcp;
+    class LO ker;
 ```
 
 Each repo is independently shippable. They are also **paired** — a goal
@@ -56,7 +75,7 @@ through `RoClaw`. Each layer is swappable.
 > backwards compatibility — at this stage.
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 ## ▸ the four active projects
@@ -67,7 +86,7 @@ particle streams and a digitization scan line bridging them.
 
 <p align="center">
   <a href="https://github.com/EvolvingAgentsLabs/skillos">
-    <img src="profile/assets/card-skillos.svg" alt="skillos — pure markdown OS for the desktop" width="100%"/>
+    <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/card-skillos.svg" alt="skillos — pure markdown OS for the desktop" width="100%"/>
   </a>
 </p>
 
@@ -89,7 +108,7 @@ $ skillos execute "Run the RoClaw Dream Consolidation scenario"
 
 <p align="center">
   <a href="https://github.com/EvolvingAgentsLabs/skillos_mini">
-    <img src="profile/assets/card-skillos-mini.svg" alt="skillos_mini — on-device trade-app" width="100%"/>
+    <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/card-skillos-mini.svg" alt="skillos_mini — on-device trade-app" width="100%"/>
   </a>
 </p>
 
@@ -111,7 +130,7 @@ leave the device until the user taps share.
 
 <p align="center">
   <a href="https://github.com/EvolvingAgentsLabs/RoClaw">
-    <img src="profile/assets/card-roclaw.svg" alt="RoClaw — embodied AI cube" width="100%"/>
+    <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/card-roclaw.svg" alt="RoClaw — embodied AI cube" width="100%"/>
   </a>
 </p>
 
@@ -134,7 +153,7 @@ $ npm run sim:3d -- --ollama --goal "navigate to the red cube"
 
 <p align="center">
   <a href="https://github.com/EvolvingAgentsLabs/llm_os">
-    <img src="profile/assets/card-llm-os.svg" alt="llm_os — LLM as CPU" width="100%"/>
+    <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/card-llm-os.svg" alt="llm_os — LLM as CPU" width="100%"/>
   </a>
 </p>
 
@@ -157,40 +176,48 @@ $ ./scripts/quickstart.sh
 ```
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 ## ▸ how the four fit together
 
-```
-                    ┌──────────────────┐
-                    │  USER · WhatsApp │
-                    │  voice · CLI     │
-                    └────────┬─────────┘
-                             │ "Go check the kitchen"
-                             ▼
-              ┌─────────────────────────────┐
-              │  skillos · skillos_mini     │   ◄  ARES ORANGE  ◄
-              │  prefrontal cortex          │       cortex
-              │  plan · learn · dream       │
-              └────────┬────────────────────┘
-                       │ HTTP
-                       ▼
-              ┌─────────────────────────────┐
-              │  llm_os                     │   ◄  WHITE-ON-BLACK ◄
-              │  kernel · LLM as CPU        │       kernel
-              │  ISA · GBNF · iod · KV      │
-              └────────┬────────────────────┘
-                       │ <|call|>roclaw.forward
-                       ▼
-              ┌─────────────────────────────┐
-              │  RoClaw                     │   ◄  MCP GREEN  ◄
-              │  cerebellum · embodied      │       cerebellum
-              │  perceive · move            │
-              └────────┬────────────────────┘
-                       │ UDP :4210
-                       ▼
-                   ESP32-S3 · 20cm cube
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor':'#1a0500','primaryTextColor':'#ffd9c2','primaryBorderColor':'#ff2d00',
+  'lineColor':'#ff6b1a','secondaryColor':'#001a14','tertiaryColor':'#000',
+  'background':'#000','mainBkg':'#1a0500',
+  'clusterBkg':'#000','clusterBorder':'#ff6b1a',
+  'edgeLabelBackground':'#000',
+  'fontFamily':'ui-monospace, SF Mono, Menlo, Consolas, monospace'
+}}}%%
+flowchart TB
+    User["💬 USER<br/>WhatsApp · voice · CLI"] -- "&quot;Go check the kitchen&quot;" --> Cortex
+    subgraph Cortex_Layer ["◬ ARES ORANGE · cortex"]
+        Cortex["skillos · skillos_mini<br/>plan · learn · dream"]
+    end
+    Cortex -- "HTTP" --> Kernel
+    subgraph Kernel_Layer ["◇ WHITE-ON-BLACK · kernel"]
+        Kernel["llm_os<br/>LLM as CPU · ISA · GBNF · iod · KV"]
+    end
+    Kernel -- "&lt;|call|&gt;roclaw.forward" --> Cereb
+    subgraph Cereb_Layer ["◈ MCP GREEN · cerebellum"]
+        Cereb["RoClaw<br/>perceive · move"]
+    end
+    Cereb -- "UDP :4210" --> HW["🦾 ESP32-S3 · 20cm cube"]
+
+    Cereb -. "trace.md (fidelity 0.3 → 1.0)" .-> Cortex
+    Kernel -. "/trace · /policy" .-> Cortex
+
+    classDef cortexCls fill:#1a0500,stroke:#ff2d00,color:#ffd9c2,stroke-width:2px;
+    classDef kernCls   fill:#0a0a0a,stroke:#ffffff,color:#e4e4e7,stroke-width:2px;
+    classDef cerebCls  fill:#001a0a,stroke:#00ff7f,color:#bbf7d0,stroke-width:2px;
+    classDef hwCls     fill:#001a14,stroke:#00d4ff,color:#bff7ff,stroke-width:2px;
+    classDef userCls   fill:#000,stroke:#a1a1aa,color:#e4e4e7;
+    class Cortex cortexCls;
+    class Kernel kernCls;
+    class Cereb cerebCls;
+    class HW hwCls;
+    class User userCls;
 ```
 
 Each layer is independently shippable. Each layer is swappable. The
@@ -199,7 +226,7 @@ every trace becomes training data, every overnight cycle ends with a
 better model swapped into the local runtime.
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 ## ▸ design principles
@@ -232,7 +259,7 @@ better model swapped into the local runtime.
 ```
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 ## ▸ status
@@ -257,7 +284,7 @@ Read the per-project READMEs for the deep dive — each repo has its own
 - [`llm_os`](https://github.com/EvolvingAgentsLabs/llm_os)
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 ## ▸ contact
@@ -269,11 +296,11 @@ Read the per-project READMEs for the deep dive — each repo has its own
   **forks** and **derivative works**.
 
 <p align="center">
-  <img src="profile/assets/divider.svg" alt="" width="100%"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/divider.svg" alt="" width="100%"/>
 </p>
 
 <p align="center">
-  <img src="profile/assets/mark.svg" alt="" width="48"/>
+  <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/mark.svg" alt="" width="48"/>
 </p>
 
 <p align="center">
