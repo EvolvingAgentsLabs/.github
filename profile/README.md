@@ -48,7 +48,7 @@ flowchart LR
         SklM["skillos_mini<br/>mobile · trade-app"]
     end
     subgraph Cereb["⚡ CEREBELLUM"]
-        RC["RoClaw<br/>embodied · 20cm cube"]
+        RC["skillos_robot<br/>embodied · 20cm cube"]
     end
     subgraph Kern["◇ KERNEL"]
         LO["llm_os<br/>LLM-as-CPU · 13 opcodes"]
@@ -67,7 +67,7 @@ flowchart LR
 
 Each repo is independently shippable. They are also **paired** — a goal
 typed into `skillos` plans through `llm_os` and acts on the world
-through `RoClaw`. Each layer is swappable.
+through `skillos_robot`. Each layer is swappable.
 
 > **Permanently alpha.** Every repo here is a research experiment,
 > not a product. We ship breaking changes, partial implementations,
@@ -129,12 +129,12 @@ leave the device until the user taps share.
 ```
 
 <p align="center">
-  <a href="https://github.com/EvolvingAgentsLabs/RoClaw">
-    <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/card-roclaw.svg" alt="RoClaw — embodied AI cube" width="100%"/>
+  <a href="https://github.com/EvolvingAgentsLabs/skillos_robot">
+    <img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/.github/main/profile/assets/card-roclaw.svg" alt="skillos_robot — embodied AI cube" width="100%"/>
   </a>
 </p>
 
-### [RoClaw](https://github.com/EvolvingAgentsLabs/RoClaw) &nbsp;·&nbsp; <code>cerebellum · embodied</code>
+### [skillos_robot](https://github.com/EvolvingAgentsLabs/skillos_robot) &nbsp;·&nbsp; <code>cerebellum · embodied</code>
 
 A **20 cm cube robot** powered by ESP32-S3 + 28BYJ-48 stepper motors,
 driven by a vision language model running on-device. Five-tier stack:
@@ -201,7 +201,7 @@ flowchart TB
     end
     Kernel -- "&lt;|call|&gt;roclaw.forward" --> Cereb
     subgraph Cereb_Layer ["◈ MCP GREEN · cerebellum"]
-        Cereb["RoClaw<br/>perceive · move"]
+        Cereb["skillos_robot<br/>perceive · move"]
     end
     Cereb -- "UDP :4210" --> HW["🦾 ESP32-S3 · 20cm cube"]
 
@@ -269,7 +269,7 @@ better model swapped into the local runtime.
   │                                                                    │
   │  skillos        ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰   stable       v0.X     │
   │  skillos_mini   ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰    feat-complete v0.1.0  │
-  │  RoClaw         ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰      active research        │
+  │  skillos_robot  ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰      active research        │
   │  llm_os         ▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰       v0.5-rc1 · → v1.0    │
   │                                                                    │
   └────────────────────────────────────────────────────────────────────┘
@@ -280,7 +280,7 @@ Read the per-project READMEs for the deep dive — each repo has its own
 
 - [`skillos`](https://github.com/EvolvingAgentsLabs/skillos)
 - [`skillos_mini`](https://github.com/EvolvingAgentsLabs/skillos_mini)
-- [`RoClaw`](https://github.com/EvolvingAgentsLabs/RoClaw)
+- [`skillos_robot`](https://github.com/EvolvingAgentsLabs/skillos_robot)
 - [`llm_os`](https://github.com/EvolvingAgentsLabs/llm_os)
 
 <p align="center">
