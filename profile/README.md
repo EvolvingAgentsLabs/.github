@@ -1,109 +1,75 @@
 <p align="center">
   <strong><code>EVOLVING AGENTS LABS</code></strong><br/>
-  <sub>Agents defined in markdown. Evolved through memory. Running from Claude Code to bare metal.</sub>
+  <sub>Experiments in how agents learn, remember, and prove what they know.</sub>
 </p>
 
 ---
 
-One thesis explored at five levels of depth: agent behavior belongs in declarative documents, the LLM is the interpreter, memory is how agents improve, and grammar/structure is how you keep them safe.
+Agents that modify themselves are easy to build and hard to trust. Everything here attacks the second half of that sentence — versioning an agent's evolution so a human can review it, reading a model's internal workspace to catch a memory it was tricked into keeping, or constraining a small model at the decoder so invalid output is not discouraged but impossible.
 
-Each layer removes a safety net. Each one proves the same patterns work at increasing depth.
+Each experiment is labelled by how much evidence stands behind it — including the ones where the evidence went against us.
 
-```
-                         ┌───────────────┐
-                         │    llm_os     │  LLM is the CPU. 14-opcode ISA.
-                         │    (Rust)     │  GBNF grammar = type system.
-                     ┌───┴───────────────┴───┐
-                     │     skillos_robot      │  VLM-driven robot. $30 hardware.
-                     │     (TypeScript)       │  Dream consolidation.
-                 ┌───┴───────────────────────┴───┐
-                 │        skillos_mini            │  On-device. 2B model. No internet.
-                 │        (Svelte/Capacitor)      │  Deterministic safety checks.
-             ┌───┴───────────────────────────────┴───┐
-             │              skillos                    │  Full markdown OS. Any LLM.
-             │              (Pure Markdown)            │  Memory + evolution + planning.
-         ┌───┴───────────────────────────────────────┴───┐
-         │     skillos_plugin + skillos_systemcontrol      │  Try it now in Claude Code.
-         │     (Claude Code plugins)                       │  Install in 10 seconds.
-         └─────────────────────────────────────────────────┘
-```
+| Badge | Means |
+|---|---|
+| **Reproducible** | clone it and run it, no API key |
+| **Results** | published findings, negative ones included |
+| **Prototype** | runs, but needs setup or has no eval yet |
 
 ---
 
-## Start here — try in 30 seconds
+### [sleep-harness](https://github.com/EvolvingAgentsLabs/sleep-harness) — **Results** · Jul 2026
 
-### [skillos_plugin](https://github.com/EvolvingAgentsLabs/skillos_plugin) + [skillos_systemcontrol_plugin](https://github.com/EvolvingAgentsLabs/skillos_systemcontrol_plugin)
+*What if you could catch a poisoned memory by watching which concepts light up inside the model?*
 
-The fastest way to explore SkillOS concepts. Install in Claude Code, give it a goal — it creates agents, executes them, and consolidates learnings. `/sysctl` governs what `/skillos` builds.
+An interpretability firewall for agent memory. Reads the residual stream through a Jacobian lens to flag injected instructions that are lexically identical to benign text, and to scan third-party adapters for trojans before they mount. Hypotheses are pre-registered; the refuted ones are published alongside the confirmed ones.
+
+### [evolving-robot](https://github.com/EvolvingAgentsLabs/evolving-robot) — **Prototype** · Jul 2026
+
+*What if a robot that missed a fallen patient could rewrite its own care protocol overnight?*
+
+Florence patrols a hospital ward, fails to check a patient standing outside her lamp radius, and revises the skill that caused it. The rewrite survives only if it outscores the protocol it replaced; otherwise it is reverted, with the reason on a durable ledger.
+
+### [agentvcs](https://github.com/EvolvingAgentsLabs/agentvcs) — **Reproducible** · Jul 2026
+
+*What if an agent's autonomous evolution could be merged back into your release, like any other branch?*
+
+Version control where one commit carries code, goal, model pins, trace and sub-agent swarm together. Conflicts between what the agent taught itself at runtime and what your team edited in git are handed to a reconciler over a plain stdin/stdout contract.
 
 ```bash
-/skillos "Build a REST API with auth and tests"
-# → 3 agents created, triad decomposition, output in projects/
-
-/sysctl "audit and score all agents"
-# → security scan, performance scores, evolution proposals
+pip install agentvcs
+bash examples/eve-evolve-merge/demo.sh   # runs offline, no API key
 ```
+
+### [qa](https://github.com/EvolvingAgentsLabs/qa) — **Prototype** · Jun 2026
+
+*What if your test suite told you what it had quietly stopped checking?*
+
+Every assertion is fingerprinted and diffed across runs, so a check that silently disappeared surfaces as a finding. Exploratory browser sessions that pass get frozen into deterministic scripts; steps that failed become explicit skips rather than silence.
+
+### [skillos](https://github.com/EvolvingAgentsLabs/skillos) — **Prototype** · Jun 2026
+
+*What if the operating system were written entirely in markdown?*
+
+Skills as programs, traces as logs, consolidation as sleep. Includes a line-op dialect that lets small models patch files by emitting edits instead of rewriting whole documents, measured by an AST-verified benchmark rather than an LLM judge.
+
+### [skillos_mini](https://github.com/EvolvingAgentsLabs/skillos_mini) — **Reproducible** · May 2026
+
+*What if a small model could not emit invalid syntax, because the decoder refused to let it?*
+
+Every legal instruction is pre-tokenized into a trie of token IDs, and the sampler's valid-next set is masked at each step. A 350M-parameter model plays Tetris in a browser tab, fully offline. Grammar enforced in the decoder, not requested in the prompt.
+
+### [skillos_robot](https://github.com/EvolvingAgentsLabs/skillos_robot) — **Prototype** · May 2026
+
+*What if the robot were just a device driver for a language model?*
+
+A slow vision-language brain plans at roughly one hertz while a reactive controller drives motors at twenty, over a bytecode link to an ESP32. Firmware, CAD and simulation scenes included.
+
+### [evolving-memory](https://github.com/EvolvingAgentsLabs/evolving-memory) — **Results** · Apr 2026
+
+*What if an agent's memory consolidated itself the way sleep consolidates yours?*
+
+A trajectory engine that chunks execution traces, connects them and curates what survives, so repeated experience raises confidence and failures extract constraints — without one domain's lessons bleeding into another.
 
 ---
 
-## Full system — markdown-defined agent OS
-
-### [skillos](https://github.com/EvolvingAgentsLabs/skillos) — Pure Markdown Operating System
-
-Every component — agents, tools, memory, orchestration — defined in `.md` files interpreted by any LLM at runtime. HWM hierarchical planning, 14 token-compression dialects, dream consolidation, self-optimization. Runs on Claude, Gemini, Gemma 4, or any OpenAI-compatible endpoint.
-
-```bash
-skillos execute: "Run the Operation Echo-Q scenario"
-# → 4 agents, 5 wiki pages, working quantum_cepstrum.py
-```
-
----
-
-## On-device — same concepts on a phone
-
-### [skillos_mini](https://github.com/EvolvingAgentsLabs/skillos_mini) — On-device trade assistant (Android)
-
-Markdown cartridges guide a 2B local LLM through trade diagnostics. Electrician (IEC 60364), plumber, painter. All safety rules execute as deterministic TypeScript functions. No internet required. Gemma 4 on-device via LiteRT.
-
-```bash
-# "panel has exposed wiring and no RCD"
-# → route: electricista → checkWireGauge → FALLA → checkRCD → PELIGRO
-# → diagnosis: Recableado 4mm² + diferencial 30mA
-```
-
----
-
-## Real world — embodied cognition for $30
-
-### [skillos_robot](https://github.com/EvolvingAgentsLabs/skillos_robot) — VLM-powered robot navigation
-
-A 20cm robot driven by a vision language model. Give it a goal — it sees through the camera, reasons about the scene, and drives to the target. Failed traces get retried in MuJoCo simulation during dream consolidation.
-
-```bash
-robot navigate "go to the red cube"
-# → VLM perception at 1-2 Hz, motor control at 10-20 Hz
-# → target reached in 12 steps
-
-robot dream
-# → 3 failed traces retried in simulation → new strategies
-```
-
----
-
-## Bare metal — the LLM is the CPU
-
-### [llm_os](https://github.com/EvolvingAgentsLabs/llm_os) — An OS where the LLM is the CPU
-
-14-opcode ISA enforced by GBNF grammar at decode time — invalid sequences are physically impossible to emit. In-process inference via Rust FFI to llama.cpp. KV cache as RAM with deterministic paging. WASM-sandboxed cartridges. Boots from SD card on a Raspberry Pi 5 at 8 Hz.
-
-```bash
-bash scripts/dev.sh --model qwen2.5-3b-q4.gguf
-# → in-process FFI, grammar stack, 6 cartridges mounted
-
-bash image/build.sh --model qwen2.5-3b-q4.gguf
-# → pi5-sdcard.img (1.8GB, boots to iod)
-```
-
----
-
-<sub>Apache 2.0 · permanently alpha · 2026 · <a href="https://evolvingagentslabs.github.io">evolvingagentslabs.github.io</a></sub>
+<sub>Apache 2.0 · permanently alpha · <a href="https://evolvingagentslabs.github.io">evolvingagentslabs.github.io</a></sub>
