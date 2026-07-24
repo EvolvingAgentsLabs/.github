@@ -52,7 +52,7 @@ Every assertion is fingerprinted and diffed across runs, so a check that silentl
 
 Skills as programs, traces as logs, consolidation as sleep. Includes a line-op dialect that lets small models patch files by emitting edits instead of rewriting whole documents, measured by an AST-verified benchmark rather than an LLM judge.
 
-### [skillos_mini](https://github.com/EvolvingAgentsLabs/skillos_mini) — **Reproducible** · May 2026
+### [token-trie](https://github.com/EvolvingAgentsLabs/token-trie) — **Reproducible** · May 2026
 
 *What if a small model could not emit invalid syntax, because the decoder refused to let it?*
 
