@@ -36,7 +36,8 @@ Florence patrols a hospital ward, fails to check a patient standing outside her 
 Version control where one commit carries code, goal, model pins, trace and sub-agent swarm together. Conflicts between what the agent taught itself at runtime and what your team edited in git are handed to a reconciler over a plain stdin/stdout contract.
 
 ```bash
-pip install agentvcs
+git clone https://github.com/EvolvingAgentsLabs/agentvcs
+cd agentvcs && pip install -e .
 bash examples/eve-evolve-merge/demo.sh   # runs offline, no API key
 ```
 
