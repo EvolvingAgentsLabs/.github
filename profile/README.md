@@ -5,6 +5,8 @@
 
 ---
 
+**By [Matias Molinas](https://github.com/matiasmolinas) and [Ismael Faro](https://github.com/ismaelfaro)** — the ideas, the architecture and the code, out of an ongoing conversation between the two. The repositories are where those conversations get tested.
+
 Agents that modify themselves are easy to build and hard to trust. Everything here attacks the second half of that sentence — versioning an agent's evolution so a human can review it, reading a model's internal workspace to catch a memory it was tricked into keeping, or constraining a small model at the decoder so invalid output is not discouraged but impossible.
 
 Each experiment is labelled by how much evidence stands behind it — including the ones where the evidence went against us.
@@ -70,6 +72,32 @@ A slow vision-language brain plans at roughly one hertz while a reactive control
 *What if an agent's memory consolidated itself the way sleep consolidates yours?*
 
 A trajectory engine that chunks execution traces, connects them and curates what survives, so repeated experience raises confidence and failures extract constraints — without one domain's lessons bleeding into another.
+
+---
+
+## The through-line
+
+Eight experiments, one question: not whether an agent can do something, but how you
+would know it did. Three mechanisms kept working, and they turned up independently
+before they looked like the same idea.
+
+**Constrain the mechanism, not the prompt.** Masking the sampler's valid-next set makes
+malformed output unreachable. The matched negative is what makes it convincing: the
+prompt-level version of the same objective fires in 1 of 7 identical sessions, and
+instructing harder measured worse.
+
+**Prove it, then freeze it.** Run the expensive non-deterministic thing once, verify it,
+crystallize it into something replayable — enforced in code, not in a README.
+
+**Look where the standard filter is blind.** A keyword filter over agent memory cannot
+see a payload written in words it likes; a coverage tool cannot see the check you
+stopped making.
+
+And the half that makes the rest worth reading: a pre-registered founding hypothesis
+marked **REFUTADA**, and a published retraction of a claim that came from n=1 and
+reversed on re-run.
+
+**[Read the full thesis →](https://evolvingagentslabs.github.io/thesis/)**
 
 ---
 
