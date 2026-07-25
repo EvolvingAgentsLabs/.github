@@ -67,6 +67,16 @@ Every legal instruction is pre-tokenized into a trie of token IDs, and the sampl
 
 A slow vision-language brain plans at roughly one hertz while a reactive controller drives motors at twenty, over a bytecode link to an ESP32. Firmware, CAD and simulation scenes included.
 
+### [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) — *where this came from* · 2025
+
+*What if the decomposition was right and the substrate was wrong?*
+
+The Evolving Agents Toolkit: eighteen thousand lines describing five subsystems, and
+three test functions. Each subsystem was independently rebuilt over the following year
+on something that could be tested. Its `firmware.py` sets a governance string asking a
+model to "never use dangerous imports"; token-trie makes the token unreachable. Same
+intention, one substrate apart — the code is still there so you can diff it.
+
 ### [evolving-memory](https://github.com/EvolvingAgentsLabs/evolving-memory) — **Results** · Apr 2026
 
 *What if an agent's memory consolidated itself the way sleep consolidates yours?*
