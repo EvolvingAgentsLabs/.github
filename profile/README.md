@@ -19,6 +19,12 @@ Each experiment is labelled by how much evidence stands behind it — including 
 
 ---
 
+### [gene-evidence](https://github.com/EvolvingAgentsLabs/gene-evidence) — **Prototype** · Oct 2026
+
+*What if every sentence in a gene report could be traced back to the tool output it rests on?*
+
+Evidence reports for predicted protein-coding genes that the reference annotation does not have: locus context, retrocopy signature, Swiss-Prot homology, Pfam domains, ORF sanity and optional RNA support, collected into an evidence graph and rendered as a report in which every sentence cites the nodes it rests on. Deterministic — two independent runs produce byte-identical output — and with no LLM in stage 1. It does not claim that its ranking finds real genes.
+
 ### [sleep-harness](https://github.com/EvolvingAgentsLabs/sleep-harness) — **Results** · Jul 2026
 
 *What if you could catch a poisoned memory by watching which concepts light up inside the model?*
@@ -87,7 +93,7 @@ A trajectory engine that chunks execution traces, connects them and curates what
 
 ## The through-line
 
-Eight experiments, one question: not whether an agent can do something, but how you
+Nine experiments, one question: not whether an agent can do something, but how you
 would know it did. Three mechanisms kept working, and they turned up independently
 before they looked like the same idea.
 
