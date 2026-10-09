@@ -19,7 +19,8 @@ Each experiment is labelled by how much evidence stands behind it — including 
 
 ---
 
-### [gene-evidence](https://github.com/EvolvingAgentsLabs/gene-evidence) — **Prototype** · Oct 2026
+<!-- TODO: link https://github.com/EvolvingAgentsLabs/gene-evidence when public -->
+### gene-evidence — **Prototype** · Oct 2026 · repo opening soon
 
 *What if every sentence in a gene report could be traced back to the tool output it rests on?*
 
