@@ -19,12 +19,11 @@ Each experiment is labelled by how much evidence stands behind it — including 
 
 ---
 
-<!-- TODO: link https://github.com/EvolvingAgentsLabs/gene-evidence when public -->
-### gene-evidence — **Prototype** · Oct 2026 · repo opening soon
+### [gene-evidence](https://github.com/EvolvingAgentsLabs/gene-evidence) — **Prototype** · Oct 2026
 
 *What if every sentence in a gene report could be traced back to the tool output it rests on?*
 
-Evidence reports for predicted protein-coding genes that the reference annotation does not have: locus context, retrocopy signature, Swiss-Prot homology, Pfam domains, ORF sanity and optional RNA support, collected into an evidence graph and rendered as a report in which every sentence cites the nodes it rests on. Deterministic — two independent runs produce byte-identical output — and with no LLM in stage 1. It does not claim that its ranking finds real genes.
+Evidence reports for predicted protein-coding genes that the reference annotation does not have: locus context, retrocopy signature, Swiss-Prot homology, Pfam domains, ORF sanity and optional RNA evidence, collected into an evidence graph and rendered as a report in which every sentence cites the graph nodes it rests on. Deterministic — two independent runs produce byte-identical output — and with no LLM or learned model in stage 1. It does not claim that its ranking finds real genes: against long-read transcript evidence its fixed tier ordering did worse than the predictor's own confidence score, so use a report to explain a candidate, not to choose which to validate first.
 
 ### [sleep-harness](https://github.com/EvolvingAgentsLabs/sleep-harness) — **Results** · Jul 2026
 
