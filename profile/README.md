@@ -1,119 +1,68 @@
 <p align="center">
   <strong><code>EVOLVING AGENTS LABS</code></strong><br/>
-  <sub>Experiments in how agents learn, remember, and prove what they know.</sub>
+  <sub>Open-source tools for AI systems whose results can be traced to what produced them.</sub>
 </p>
 
 ---
 
 **By [Matias Molinas](https://github.com/matiasmolinas) and [Ismael Faro](https://github.com/ismaelfaro)** — the ideas, the architecture and the code, out of an ongoing conversation between the two. The repositories are where those conversations get tested.
 
-Agents that modify themselves are easy to build and hard to trust. Everything here attacks the second half of that sentence — versioning an agent's evolution so a human can review it, reading a model's internal workspace to catch a memory it was tricked into keeping, or constraining a small model at the decoder so invalid output is not discouraged but impossible.
+Three projects are active. Each asks one question, says what is built and what is not, and marks every claim **[ran]** (observed by running it) or **[read]** (from a source). Negative results are published next to the positive ones. The website lays out all three, with every number it quotes checked nightly against the file that produced it: **[evolvingagentslabs.github.io](https://evolvingagentslabs.github.io)**.
 
-Each experiment is labelled by how much evidence stands behind it — including the ones where the evidence went against us.
+## The three active projects
 
-| Badge | Means |
-|---|---|
-| **Reproducible** | clone it and run it, no API key |
-| **Results** | published findings, negative ones included |
-| **Prototype** | runs, but needs setup or has no eval yet |
+### [lora-kernel](https://github.com/EvolvingAgentsLabs/lora-kernel) — active · the flagship
 
----
+*Can one small local model, with a trained specialist per job and a library of notes it has learned to navigate, do an organisation's routine work, and hand the rest to a frontier model?*
 
-### [gene-evidence](https://github.com/EvolvingAgentsLabs/gene-evidence) — **Prototype** · Oct 2026
+An operating layer for specialized local AI agents. One small model stays resident and gets a LoRA per job, trained on *how to walk* a library of markdown notes rather than on the facts inside them. The facts stay in notes a person can read and correct, and a small router sends whatever falls outside every specialist's ground to a frontier model.
 
-*What if every sentence in a gene report could be traced back to the tool output it rests on?*
+- **Built [ran]:** specialists that beat the bare base on their job; several adapters on one GPU; a router that abstains; an edited note answered without retraining; live runs through an agent runtime on a laptop.
+- **Not yet:** no installable package or container, no real user traffic. Multi-hop citation on real documents stopped improving. All of it is listed in [`docs/RECORD.md`](https://github.com/EvolvingAgentsLabs/lora-kernel/blob/main/docs/RECORD.md).
 
-Evidence reports for predicted protein-coding genes that the reference annotation does not have: locus context, retrocopy signature, Swiss-Prot homology, Pfam domains, ORF sanity and optional RNA evidence, collected into an evidence graph and rendered as a report in which every sentence cites the graph nodes it rests on. Deterministic — two independent runs produce byte-identical output — and with no LLM or learned model in stage 1. It does not claim that its ranking finds real genes: against long-read transcript evidence its fixed tier ordering did worse than the predictor's own confidence score, so use a report to explain a candidate, not to choose which to validate first.
+### [agentvcs](https://github.com/EvolvingAgentsLabs/agentvcs) — active · Rust core v0.1
 
-### [sleep-harness](https://github.com/EvolvingAgentsLabs/sleep-harness) — **Results** · Jul 2026
+*When an agent's harness changes while it runs, can every result still be traced to the change that caused it? And can two diverging harnesses be merged on the evidence?*
 
-*What if you could catch a poisoned memory by watching which concepts light up inside the model?*
+Version control for agent harnesses. Every step of a run is stamped with the harness version that produced it: prompts, models, sampling, tools, adapters, router. A patch is gated before it applies, and `blame` attributes a change in a metric to the patch that brought it. Two harnesses that diverged are merged one dimension at a time. Each real conflict goes to **Claude Code, agentvcs's only LLM**, together with the evidence behind both sides, and agentvcs checks the resolution before it records it.
 
-An interpretability firewall for agent memory. Reads the residual stream through a Jacobian lens to flag injected instructions that are lexically identical to benign text, and to scan third-party adapters for trojans before they mount. Hypotheses are pre-registered; the refuted ones are published alongside the confirmed ones.
+- **Built [ran]:** a Rust core, CLI, MCP server and Python SDK, plus a protocol with a conformance suite. On a real local model, `blame` attributed the gain to exactly the one patch applied mid-run.
+- **Not yet:** no PyPI package. No real Claude Code merge session is recorded in the repository. `bisect --exec` and remotes are not built.
 
-### [evolving-robot](https://github.com/EvolvingAgentsLabs/evolving-robot) — **Prototype** · Jul 2026
+### [gene-evidence](https://github.com/EvolvingAgentsLabs/gene-evidence) — prototype · stage 1
 
-*What if a robot that missed a fallen patient could rewrite its own care protocol overnight?*
+*Can every sentence of a report on a predicted gene be traced to the tool output it rests on?*
 
-Florence patrols a hospital ward, fails to check a patient standing outside her lamp radius, and revises the skill that caused it. The rewrite survives only if it outscores the protocol it replaced; otherwise it is reverted, with the reason on a durable ledger.
+Auditable evidence reports for gene predictions that the reference annotation does not have. It collects locus context, a retrocopy signature, homology, protein domains, ORF sanity and optional RNA into an evidence graph, one node per tool output with its version and database hash. It then writes a report that cites graph nodes in every sentence, and a checker fails any sentence that does not. Two runs give byte-identical output.
 
-### [agentvcs](https://github.com/EvolvingAgentsLabs/agentvcs) — **Reproducible** · Jul 2026
+- **Built [ran]:** stage 1 with no language model, and a development run on rat.
+- **Not yet:** a model that drafts or critiques the report.
+- **Known limitation:** use a report to *explain* a candidate, not to choose which to validate first. Its fixed tiers ranked candidates worse than the gene predictor's own confidence.
 
-*What if an agent's autonomous evolution could be merged back into your release, like any other branch?*
+## How they connect
 
-Version control where one commit carries code, goal, model pins, trace and sub-agent swarm together. Conflicts between what the agent taught itself at runtime and what your team edited in git are handed to a reconciler over a plain stdin/stdout contract.
-
-```bash
-git clone https://github.com/EvolvingAgentsLabs/agentvcs
-cd agentvcs && pip install -e .
-bash examples/eve-evolve-merge/demo.sh   # runs offline, no API key
+```mermaid
+flowchart LR
+    GE["<b>gene-evidence</b><br/>evidence graph · no model"]
+    LK["<b>lora-kernel</b><br/>local specialists, cited answers"]
+    AV["<b>agentvcs</b><br/>versions a running harness"]
+    AV == "built: LK0 imports lora-kernel's configuration<br/>as a manifest; changes become gated patches" ==> LK
+    GE -. "next, not built: an expert drafts the report;<br/>the citation check gates every sentence" .-> LK
+    GE -. "next, not built: each evidence run versioned;<br/>a database or rule change is a patch" .-> AV
 ```
 
-### [qa](https://github.com/EvolvingAgentsLabs/qa) — **Prototype** · Jun 2026
+| connection | status | what it is |
+|---|---|---|
+| agentvcs ↔ lora-kernel | **built** | agentvcs's [lora-kernel example](https://github.com/EvolvingAgentsLabs/agentvcs/tree/main/examples/lora-kernel) reads a lora-kernel checkout (read only) into a harness manifest. It turns measured configuration changes into gated patches and hands a conflict between two branches to Claude Code. **Imported, not live:** nothing is re-run, and the branches are built for the demo. |
+| gene-evidence → lora-kernel | next, not built | a lora-kernel specialist reads the evidence graph and drafts or critiques the report, and gene-evidence's citation checker gates every sentence it writes. Today gene-evidence runs no model. |
+| gene-evidence → agentvcs | next, not built | each evidence run versioned as an agentvcs run, so `blame` can trace a change in a report to the database release or rule change that caused it. Today gene-evidence records its versions in its own files. |
 
-*What if your test suite told you what it had quietly stopped checking?*
+## Paused and archived
 
-Every assertion is fingerprinted and diffed across runs, so a check that silently disappeared surfaces as a finding. Exploratory browser sessions that pass get frozen into deterministic scripts; steps that failed become explicit skips rather than silence.
-
-### [skillos](https://github.com/EvolvingAgentsLabs/skillos) — **Prototype** · Jun 2026
-
-*What if the operating system were written entirely in markdown?*
-
-Skills as programs, traces as logs, consolidation as sleep. Includes a line-op dialect that lets small models patch files by emitting edits instead of rewriting whole documents, measured by an AST-verified benchmark rather than an LLM judge.
-
-### [token-trie](https://github.com/EvolvingAgentsLabs/token-trie) — **Reproducible** · May 2026
-
-*What if a small model could not emit invalid syntax, because the decoder refused to let it?*
-
-Every legal instruction is pre-tokenized into a trie of token IDs, and the sampler's valid-next set is masked at each step. A 350M-parameter model plays Tetris in a browser tab, fully offline. Grammar enforced in the decoder, not requested in the prompt.
-
-### [skillos_robot](https://github.com/EvolvingAgentsLabs/skillos_robot) — **Prototype** · May 2026
-
-*What if the robot were just a device driver for a language model?*
-
-A slow vision-language brain plans at roughly one hertz while a reactive controller drives motors at twenty, over a bytecode link to an ESP32. Firmware, CAD and simulation scenes included.
-
-### [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) — *where this came from* · 2025
-
-*What if the decomposition was right and the substrate was wrong?*
-
-The Evolving Agents Toolkit: eighteen thousand lines describing five subsystems, and
-three test functions. Each subsystem was independently rebuilt over the following year
-on something that could be tested. Its `firmware.py` sets a governance string asking a
-model to "never use dangerous imports"; token-trie makes the token unreachable. Same
-intention, one substrate apart — the code is still there so you can diff it.
-
-### [evolving-memory](https://github.com/EvolvingAgentsLabs/evolving-memory) — **Results** · Apr 2026
-
-*What if an agent's memory consolidated itself the way sleep consolidates yours?*
-
-A trajectory engine that chunks execution traces, connects them and curates what survives, so repeated experience raises confidence and failures extract constraints — without one domain's lessons bleeding into another.
-
----
-
-## The through-line
-
-Nine experiments, one question: not whether an agent can do something, but how you
-would know it did. Three mechanisms kept working, and they turned up independently
-before they looked like the same idea.
-
-**Constrain the mechanism, not the prompt.** Masking the sampler's valid-next set makes
-malformed output unreachable. The matched negative is what makes it convincing: the
-prompt-level version of the same objective fires in 1 of 7 identical sessions, and
-instructing harder measured worse.
-
-**Prove it, then freeze it.** Run the expensive non-deterministic thing once, verify it,
-crystallize it into something replayable — enforced in code, not in a README.
-
-**Look where the standard filter is blind.** A keyword filter over agent memory cannot
-see a payload written in words it likes; a coverage tool cannot see the check you
-stopped making.
-
-And the half that makes the rest worth reading: a pre-registered founding hypothesis
-marked **REFUTADA**, and a published retraction of a claim that came from n=1 and
-reversed on re-run.
-
-**[Read the full thesis →](https://evolvingagentslabs.github.io/thesis/)**
+- [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) — **paused.** The 2025 toolkit and the lab's monorepo, kept readable. Not where current work happens.
+- [physics-verifiers](https://github.com/EvolvingAgentsLabs/physics-verifiers) — **paused.** A generator of physics tasks with exact truth.
+- [nightshift](https://github.com/EvolvingAgentsLabs/nightshift) — **paused.** A proof-of-concept memory engine for Claude Code. Nobody has measured that it helps.
+- **25 more repositories are archived** and read-only. Each is listed, with where it moved, in [the archive](https://evolvingagentslabs.github.io/archive/#all-archived).
 
 ---
 
