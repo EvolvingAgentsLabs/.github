@@ -7,7 +7,17 @@
 
 **By [Matias Molinas](https://github.com/matiasmolinas) and [Ismael Faro](https://github.com/ismaelfaro)** — the ideas, the architecture and the code, out of an ongoing conversation between the two. The repositories are where those conversations get tested.
 
-Three projects are active. Each asks one question, says what is built and what is not, and marks every claim **[ran]** (observed by running it) or **[read]** (from a source). Negative results are published next to the positive ones. The website lays out all three, with every number it quotes checked nightly against the file that produced it: **[evolvingagentslabs.github.io](https://evolvingagentslabs.github.io)**.
+The **director** is the lab's centre, and three projects are active beneath it. Each asks one question, says what is built and what is not, and marks every claim **[ran]** (observed by running it) or **[read]** (from a source). Negative results are published next to the positive ones. The website lays out all of it, with every number it quotes checked nightly against the file that produced it: **[evolvingagentslabs.github.io](https://evolvingagentslabs.github.io)**.
+
+## The director
+
+<p align="center"><img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/evolving-agents/main/docs/img/hub-hero.jpg" alt="A workshop room: a chart table with a map of linked index cards and a route traced in red, two brass tubes to a distant domed building and to a small local machine; behind it three benches — a card-catalogue library, a machine with a sealed ledger, an evidence table." width="100%"></p>
+
+### [director](https://github.com/EvolvingAgentsLabs/evolving-agents/tree/main/packages/director) — active · in evolving-agents
+- **Question:** can an agent keep a team's way of working as memory — and plan, delegate and learn by it, so that each lesson is checked before it is kept?
+- **What it is:** a meta-agent. It walks an operational memory of small linked statements to plan, hands each step to Claude Code or to a local model, and learns from each task and from where the user moves work. Every lesson it keeps is an agentvcs patch.
+- **Measured [ran]:** planning the team's way **0.929** against **0.589** for today's session (14 real situations, blind judge); learning from tasks **0.0 → 0.781** on held-out probes, the first suite re-checked at 0.964; after one lane move, public-facing drafts **0 / 6 → 6 / 6** to the frontier.
+- **Not yet:** its local lane through lora-kernel's specialists; no write access by default; about eleven times the cost of today's session per plan.
 
 ## The three active projects
 
@@ -43,9 +53,12 @@ Auditable evidence reports for gene predictions that the reference annotation do
 
 ```mermaid
 flowchart LR
+    DI["<b>director</b><br/>walks the team's memory · plans · learns"]
     GE["<b>gene-evidence</b><br/>evidence graph · no model"]
     LK["<b>lora-kernel</b><br/>local specialists, cited answers"]
     AV["<b>agentvcs</b><br/>versions a running harness"]
+    DI == "built: every lesson it keeps<br/>is a gated agentvcs patch" ==> AV
+    DI -. "next, not built: its local lane<br/>through lora-kernel's specialists" .-> LK
     AV == "built: LK0 imports lora-kernel's configuration<br/>as a manifest; changes become gated patches" ==> LK
     GE -. "next, not built: an expert drafts the report;<br/>the citation check gates every sentence" .-> LK
     GE -. "next, not built: each evidence run versioned;<br/>a database or rule change is a patch" .-> AV
@@ -53,13 +66,17 @@ flowchart LR
 
 | connection | status | what it is |
 |---|---|---|
+| director → agentvcs | **built** | every memory edit the director keeps is an agentvcs patch — proposed, gated (it lints clean and a person accepted it), applied; `blame` credits the learning patch with its gain. |
+| director → frontier and local lanes | **built** | Claude Code as a streamed `claude -p`; any OpenAI-compatible local server — it ran on llama.cpp on a 16 GB laptop. |
+| director → lora-kernel | next, not built | the local lane through lora-kernel's specialists and router rather than a bare model. |
 | agentvcs ↔ lora-kernel | **built** | agentvcs's [lora-kernel example](https://github.com/EvolvingAgentsLabs/agentvcs/tree/main/examples/lora-kernel) reads a lora-kernel checkout (read only) into a harness manifest. It turns measured configuration changes into gated patches and hands a conflict between two branches to Claude Code. **Imported, not live:** nothing is re-run, and the branches are built for the demo. |
 | gene-evidence → lora-kernel | next, not built | a lora-kernel specialist reads the evidence graph and drafts or critiques the report, and gene-evidence's citation checker gates every sentence it writes. Today gene-evidence runs no model. |
 | gene-evidence → agentvcs | next, not built | each evidence run versioned as an agentvcs run, so `blame` can trace a change in a report to the database release or rule change that caused it. Today gene-evidence records its versions in its own files. |
 
 ## Paused and archived
 
-- [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) — **paused.** The 2025 toolkit and the lab's monorepo, kept readable. Not where current work happens.
+- [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) is **active again as the lab's hub**: the director lives there; the 2025 toolkit, the Agent SDK plugin and `ai-os` stay in it, paused.
+
 - [physics-verifiers](https://github.com/EvolvingAgentsLabs/physics-verifiers) — **paused.** A generator of physics tasks with exact truth.
 - [nightshift](https://github.com/EvolvingAgentsLabs/nightshift) — **paused.** A proof-of-concept memory engine for Claude Code. Nobody has measured that it helps.
 - **25 more repositories are archived** and read-only. Each is listed, with where it moved, in [the archive](https://evolvingagentslabs.github.io/archive/#all-archived).
