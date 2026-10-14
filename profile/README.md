@@ -27,7 +27,7 @@ An operating layer for specialized local AI agents. One small model stays reside
 Version control for agent harnesses. Every step of a run is stamped with the harness version that produced it: prompts, models, sampling, tools, adapters, router. A patch is gated before it applies, and `blame` attributes a change in a metric to the patch that brought it. Two harnesses that diverged are merged one dimension at a time. Each real conflict goes to **Claude Code, agentvcs's only LLM**, together with the evidence behind both sides, and agentvcs checks the resolution before it records it.
 
 - **Built [ran]:** a Rust core, CLI, MCP server and Python SDK, plus a protocol with a conformance suite. On a real local model, `blame` attributed the gain to exactly the one patch applied mid-run.
-- **Not yet:** no PyPI package. No real Claude Code merge session is recorded in the repository. `bisect --exec` and remotes are not built.
+- **Not yet:** no PyPI package. No real Claude Code merge session is recorded in the repository. Remotes and sync are not built.
 
 ### [gene-evidence](https://github.com/EvolvingAgentsLabs/gene-evidence) — prototype · stage 1
 
