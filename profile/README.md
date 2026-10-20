@@ -16,8 +16,10 @@ The **director** is the lab's centre, and three projects are active beneath it. 
 ### [director](https://github.com/EvolvingAgentsLabs/evolving-agents/tree/main/packages/director) — active · in evolving-agents
 - **Question:** can an agent keep a team's way of working as memory — and plan, delegate and learn by it, so that each lesson is checked before it is kept?
 - **What it is:** a meta-agent. It walks an operational memory of small linked statements to plan, hands each step to Claude Code or to a local model, and learns from each task and from where the user moves work. Every lesson it keeps is an agentvcs patch.
-- **Measured [ran]:** planning the team's way **0.929** against **0.589** for today's session (14 real situations, blind judge); learning from tasks **0.0 → 0.781** on held-out probes, the first suite re-checked at 0.964; after one lane move, public-facing drafts **0 / 6 → 6 / 6** to the frontier.
-- **Not yet:** its local lane through lora-kernel's specialists; no write access by default; about eleven times the cost of today's session per plan.
+- **Measured [ran]:** planning the team's way **0.929** against **0.589** for today's session (14 real situations, blind judge); learning from tasks **0.0 → 0.781** on held-out probes, the first suite re-checked at 0.964; after one lane move, public-facing drafts **0 / 6 → 6 / 6** to the frontier. As a Claude Code plugin, the walk plans at the same **0.929**; a local gemma4:12b following recipes Claude writes from the memory plans at **0.806** against 0.854 for Sonnet, at no cost.
+- **Published flat [ran]:** the lanes' facts as one directory of data routed as well as prose (0.880 vs 0.864) but broke clearance more often; not built.
+- **Try it:** `/plugin install director --marketplace EvolvingAgentsLabs/evolving-agents` inside Claude Code, then `/director:compile`.
+- **Not yet:** reliable routing through lora-kernel's specialists (it ran live once; abstention unreliable); no write access by default; walking costs about eleven times today's session per plan.
 
 ## The three active projects
 
@@ -68,7 +70,7 @@ flowchart LR
 |---|---|---|
 | director → agentvcs | **built** | every memory edit the director keeps is an agentvcs patch — proposed, gated (it lints clean and a person accepted it), applied; `blame` credits the learning patch with its gain. |
 | director → frontier and local lanes | **built** | Claude Code as a streamed `claude -p`; any OpenAI-compatible local server — it ran on llama.cpp on a 16 GB laptop. |
-| director → lora-kernel | next, not built | the local lane through lora-kernel's specialists and router rather than a bare model. |
+| director → lora-kernel | ran live, not reliable | the local lane through lora-kernel's specialists and router rather than a bare model; a tracker read served by the specialist, an abstention sent to the frontier; abstention unreliable outside its measured phrasing. |
 | agentvcs ↔ lora-kernel | **built** | agentvcs's [lora-kernel example](https://github.com/EvolvingAgentsLabs/agentvcs/tree/main/examples/lora-kernel) reads a lora-kernel checkout (read only) into a harness manifest. It turns measured configuration changes into gated patches and hands a conflict between two branches to Claude Code. **Imported, not live:** nothing is re-run, and the branches are built for the demo. |
 | gene-evidence → lora-kernel | next, not built | a lora-kernel specialist reads the evidence graph and drafts or critiques the report, and gene-evidence's citation checker gates every sentence it writes. Today gene-evidence runs no model. |
 | gene-evidence → agentvcs | next, not built | each evidence run versioned as an agentvcs run, so `blame` can trace a change in a report to the database release or rule change that caused it. Today gene-evidence records its versions in its own files. |
