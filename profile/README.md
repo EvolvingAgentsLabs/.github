@@ -15,7 +15,8 @@ The **director** is the lab's centre, and three projects are active beneath it. 
 
 ### [director](https://github.com/EvolvingAgentsLabs/evolving-agents/tree/main/packages/director) — active · in evolving-agents
 - **Question:** can an agent keep a team's way of working as memory — and plan, delegate and learn by it, so that each lesson is checked before it is kept?
-- **What it is:** a meta-agent. It walks an operational memory of small linked statements to plan, hands each step to Claude Code or to a local model, and learns from each task and from where the user moves work. Every lesson it keeps is an agentvcs patch.
+- **What it is:** Evolving Agents' 2025 SystemAgent, rebuilt on what we measured — the toolkit's smart memory, library, bus, Firmware and evolution loop, each pinned to a measurement. It walks an operational memory of small linked statements to plan, hands each step to Claude Code or to a local model, and learns from each task and from where the user moves work. Every lesson it keeps is an agentvcs patch.
+- **Where it runs:** a **Claude Code plugin** today (`/plugin install director --marketplace EvolvingAgentsLabs/evolving-agents`), planning at the same 0.929 through it. Next, planned and not built: lanes on Anthropic's Managed Agents and Google's Antigravity agent, each held to the same bar.
 - **Measured [ran]:** planning the team's way **0.929** against **0.589** for today's session (14 real situations, blind judge); learning from tasks **0.0 → 0.781** on held-out probes, the first suite re-checked at 0.964; after one lane move, public-facing drafts **0 / 6 → 6 / 6** to the frontier.
 - **Not yet:** its local lane through lora-kernel's specialists; no write access by default; about eleven times the cost of today's session per plan.
 
@@ -75,7 +76,7 @@ flowchart LR
 
 ## Paused and archived
 
-- [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) is **active again as the lab's hub**: the director lives there; the 2025 toolkit, the Agent SDK plugin and `ai-os` stay in it, paused.
+- [evolving-agents](https://github.com/EvolvingAgentsLabs/evolving-agents) is **active again as the director's home**: the 2025 toolkit it evolved from, the Agent SDK plugin and `ai-os` stay in it, paused.
 
 - [physics-verifiers](https://github.com/EvolvingAgentsLabs/physics-verifiers) — **paused.** A generator of physics tasks with exact truth.
 - [nightshift](https://github.com/EvolvingAgentsLabs/nightshift) — **paused.** A proof-of-concept memory engine for Claude Code. Nobody has measured that it helps.
