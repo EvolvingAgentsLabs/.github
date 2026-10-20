@@ -18,7 +18,7 @@ The **director** is the lab's centre, and three projects are active beneath it. 
 - **What it is:** Evolving Agents' 2025 SystemAgent, rebuilt on what we measured — the toolkit's smart memory, library, bus, Firmware and evolution loop, each pinned to a measurement. It walks an operational memory of small linked statements to plan, hands each step to Claude Code or to a local model, and learns from each task and from where the user moves work. Every lesson it keeps is an agentvcs patch.
 - **Where it runs:** a **Claude Code plugin** today (`/plugin install director --marketplace EvolvingAgentsLabs/evolving-agents`), planning at the same 0.929 through it. Next, planned and not built: lanes on Anthropic's Managed Agents and Google's Antigravity agent, each held to the same bar.
 - **Measured [ran]:** planning the team's way **0.929** against **0.589** for today's session (14 real situations, blind judge); learning from tasks **0.0 → 0.781** on held-out probes, the first suite re-checked at 0.964; after one lane move, public-facing drafts **0 / 6 → 6 / 6** to the frontier.
-- **Not yet:** its local lane through lora-kernel's specialists; no write access by default; about eleven times the cost of today's session per plan.
+- **Not yet:** reliable abstention on its local lane through lora-kernel's specialists (built, run live once in D4: one false and one missed abstention on two out-of-pattern requests); no write access by default; about eleven times the cost of today's session per plan.
 
 ## The three active projects
 
@@ -59,7 +59,7 @@ flowchart LR
     LK["<b>lora-kernel</b><br/>local specialists, cited answers"]
     AV["<b>agentvcs</b><br/>versions a running harness"]
     DI == "built: every lesson it keeps<br/>is a gated agentvcs patch" ==> AV
-    DI -. "next, not built: its local lane<br/>through lora-kernel's specialists" .-> LK
+    DI == "built, run live once: its local lane<br/>through lora-kernel's specialists" ==> LK
     AV == "built: LK0 imports lora-kernel's configuration<br/>as a manifest; changes become gated patches" ==> LK
     GE -. "next, not built: an expert drafts the report;<br/>the citation check gates every sentence" .-> LK
     GE -. "next, not built: each evidence run versioned;<br/>a database or rule change is a patch" .-> AV
@@ -69,7 +69,7 @@ flowchart LR
 |---|---|---|
 | director → agentvcs | **built** | every memory edit the director keeps is an agentvcs patch — proposed, gated (it lints clean and a person accepted it), applied; `blame` credits the learning patch with its gain. |
 | director → frontier and local lanes | **built** | Claude Code as a streamed `claude -p`; any OpenAI-compatible local server — it ran on llama.cpp on a 16 GB laptop. |
-| director → lora-kernel | next, not built | the local lane through lora-kernel's specialists and router rather than a bare model. |
+| director → lora-kernel | **built** | the local lane through lora-kernel's gateway and specialists. Run live once ([D4](https://github.com/EvolvingAgentsLabs/evolving-agents/blob/main/packages/director/docs/BRIEF-D4.md)): a tracker request served by the specialist with its tools, an abstention sent to the frontier by itself. A demonstration, not a rate: on two out-of-pattern requests it abstained once wrongly and missed once. |
 | agentvcs ↔ lora-kernel | **built** | agentvcs's [lora-kernel example](https://github.com/EvolvingAgentsLabs/agentvcs/tree/main/examples/lora-kernel) reads a lora-kernel checkout (read only) into a harness manifest. It turns measured configuration changes into gated patches and hands a conflict between two branches to Claude Code. **Imported, not live:** nothing is re-run, and the branches are built for the demo. |
 | gene-evidence → lora-kernel | next, not built | a lora-kernel specialist reads the evidence graph and drafts or critiques the report, and gene-evidence's citation checker gates every sentence it writes. Today gene-evidence runs no model. |
 | gene-evidence → agentvcs | next, not built | each evidence run versioned as an agentvcs run, so `blame` can trace a change in a report to the database release or rule change that caused it. Today gene-evidence records its versions in its own files. |
