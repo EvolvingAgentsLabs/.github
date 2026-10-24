@@ -14,12 +14,19 @@ The **director** is the lab's centre, and three projects are active beneath it. 
 <p align="center"><img src="https://raw.githubusercontent.com/EvolvingAgentsLabs/evolving-agents/main/docs/img/hub-hero.jpg" alt="A workshop room: a chart table with a map of linked index cards and a route traced in red, two brass tubes to a distant domed building and to a small local machine; behind it three benches — a card-catalogue library, a machine with a sealed ledger, an evidence table." width="100%"></p>
 
 ### [director](https://github.com/EvolvingAgentsLabs/evolving-agents/tree/main/packages/director) — active · in evolving-agents
-- **Question:** can an agent keep a team's way of working as memory — and plan, delegate and learn by it, so that each lesson is checked before it is kept?
-- **What it is:** Evolving Agents' 2025 SystemAgent, rebuilt on what we measured — the toolkit's smart memory, library, bus, Firmware and evolution loop, each pinned to a measurement. It walks an operational memory of small linked statements to plan, hands each step to Claude Code or to a local model, and learns from each task and from where the user moves work. Every lesson it keeps is an agentvcs patch.
-- **Where it runs:** a **Claude Code plugin** today (`/plugin install director --marketplace EvolvingAgentsLabs/evolving-agents`), planning at the same 0.929 through it. Next, planned and not built: lanes on Anthropic's Managed Agents and Google's Antigravity agent, each held to the same bar.
-- **Measured [ran], with Sonnet 5.5 planning:** planning the team's way **0.929** against **0.589** for today's session (14 real situations, blind judge); learning from tasks **0.0 → 0.781** on held-out probes, the first suite re-checked at 0.964; after one lane move, public-facing drafts **0 / 6 → 6 / 6** to the frontier.
-- **With Opus 5.5 planning [ran]:** today's session alone follows the same rules **0.964** of the time ([D0O](https://github.com/EvolvingAgentsLabs/evolving-agents/blob/main/packages/director/docs/BRIEF-D0O.md)) and keeps a multi-day thread's decisions 0.80 against the director's 0.85 ([C2](https://github.com/EvolvingAgentsLabs/evolving-agents/blob/main/packages/director/docs/BRIEF-C2.md)); the director's measured edge there is cost, 34 % less per plan. Newer, harder situations with Opus are next.
-- **Not yet:** reliable abstention on its local lane through lora-kernel's specialists (built, run live once in D4: one false and one missed abstention on two out-of-pattern requests); no write access by default; about eleven times the cost of today's session per plan.
+
+**It remembers how your team works and makes every agent session work that way.**
+
+- **Carries your decisions into the work** — before an agent plans, it finds the team's rules that apply; the plan
+  names the rule it followed and lists the choices still yours.
+- **Learns only with your yes** — a correction becomes a proposed lesson, kept only if you accept it, as a change you
+  can undo.
+- **Keeps private work private** — confidential tasks go only to machines you cleared, enforced in code.
+- **What to expect:** it does not make a strong model smarter; it pays where the model cannot know — your conventions,
+  your privacy rules, an auditable record. Every measurement, the flat ones too:
+  [how it works, and what we measured](https://github.com/EvolvingAgentsLabs/evolving-agents/blob/main/docs/DIRECTOR-EVIDENCE.md).
+- **Try it:** `/plugin install director --marketplace EvolvingAgentsLabs/evolving-agents` inside Claude Code, then
+  `/director:compile`.
 
 ## The three active projects
 
